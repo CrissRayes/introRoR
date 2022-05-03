@@ -1,7 +1,3 @@
-### Apuntes Programación Orientada a Objetos ###
-# Los tres conceptos más importantes en POO son: Clase, Instanciar e Instancia (objeto).
-
-
 ### CREACION DE OBJETOS Y METODOS ###
 # Las clases se crean y luego se untilizan para crear varias instancias.
 # El comportamiento de los objetos son los métodos que se crean dentro del mismo:
