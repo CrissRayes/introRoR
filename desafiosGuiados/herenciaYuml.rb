@@ -8,24 +8,25 @@ class Appointment
   end
 
   def location
-  # No implementado
+    @location
   end
 
   def purpose
-  # No implementado
+    @purpose
   end
 
   def hour
-  # No implementado
+    @hour
   end
 
   def min
-  # No implementado
+    @min
   end
 end
 
 
 class MonthlyAppointment < Appointment
+  attr_accessor :day
   def initialize(location, purpose, hour, min, day)
     @location = location
     @purpose = purpose
@@ -35,23 +36,27 @@ class MonthlyAppointment < Appointment
   end
 
   def day
-  # No implementado
+    @day
   end
-  def occurs_on?
-  # No implementado
+  def occurs_on?(day)
+    self.day == day ? true : false
   end
   def to_s
-  # No implementado
+    "Reunión mensual en #{@location} sobre #{@purpose} el día #{day} a las #{@hour}:#{@min}."
   end
 end
 
 class DailyAppointment < Appointment
-  def occurs_on?
-  # No implementado
+  def occurs_on?(hour, min)
+    if self.hour == hour and self.min == min
+      true
+    else
+      false
+    end
   end
 
   def to_s
-  # No implementado
+    "Reunión diaria en #{@location} sobre #{@purpose} a las #{@hour}:#{@min}."
   end
 end
 
@@ -68,25 +73,31 @@ class OneTimeAppointment
   end
 
   def day
-  # No implementado
+    @day
   end
 
   def month
-  # No implementado
+    @month
   end
 
   def year
-  # No implementado
+    @year
   end
 
-  def occurs_on?
-  # No implementado
+  def occurs_on?(day, month, year)
+    if self.day == day and self.month == month and self.year == year
+      true
+    else
+      false
+    end
   end
 
   def to_s
-  # No implementado
+    "Reunión única en #{@location} sobre #{@purpose} el día #{day}/#{@month}/#{@year} a las #{@hour}:#{@min}."
   end
 end
+
+# ¿Sabías que cuando utilizamos la instrucción puts sobre un object estamos llamando implícitamente al método to_s?
 
 # Reunión única en Desafío Latam sobre Trabajo el 4/6/2019 a las 14:30.
 puts OneTimeAppointment.new('Desafío Latam', 'Trabajo', 14, 30, 4, 6, 2019)
@@ -96,11 +107,5 @@ puts DailyAppointment.new('Desafio Latam', 'Educación', 8, 15)
 
 # Reunión mensual en NASA sobre Aliens el dia 23 a las 8:15.
 puts MonthlyAppointment.new('NASA', 'Aliens', 8, 15, 23)
-
-
-
-
-
-
 
 
