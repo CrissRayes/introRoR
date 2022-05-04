@@ -166,9 +166,12 @@ class Abeja < Insecto
   include Alimentacion::Herbivoro
 end
 
-
-
-
+# Para testear el funcionamiento, tomamos unas subclases y probamos sus métodos
+puts Paloma.new("nombre Paloma").volar
+puts Abeja.new("bee").comer
+puts Vaca.new("Mmmmmm").caminar
+puts Pinguino.new("Pinguino en el agua").nadar
+puts Pinguino.new("Pinguino en la nieve").caminar
 
 
 
